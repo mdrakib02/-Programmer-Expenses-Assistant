@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmer Expenses Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              }
+            }
+          }
+        }
+      </script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(90deg, rgba(91,33,182,1) 0%, rgba(113,94,222,1) 50%, rgba(246,98,229,1) 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="card w-96 bg-white shadow-lg rounded-lg p-6">
+        <h1 class="text-2xl font-bold text-blue-600">💻 Programmer Expenses Assistant</h1>
+
+        <!-- Tabs Section -->
+        <div class="tabs mt-4">
+            <button id="assistantTab" class="tab tab-lifted tab-active">Assistant</button>
+            <button id="historyTab" class="tab tab-lifted">History</button>
+        </div>
+
+        <!-- Assistant Tab Content -->
+        <div id="assistantContent" class="mt-6 space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Income 💰</label>
+                <input type="number" placeholder="Enter income" class="input input-bordered w-full" />
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Software 💻</label>
+                    <input type="number" placeholder="Software cost" class="input input-bordered w-full" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Courses 📚</label>
+                    <input type="number" placeholder="Course cost" class="input input-bordered w-full" />
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Internet 🌐</label>
+                <input type="number" placeholder="Internet cost" class="input input-bordered w-full" />
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Savings (%) 🐖</label>
+                <input type="number" placeholder="Savings %" class="input input-bordered w-full" />
+            </div>
+
+            <div class="flex justify-between items-center">
+                <button class="btn btn-primary w-full">Calculate</button>
+            </div>
+
+            <div class="mt-4">
+                <button class="btn btn-success w-full">Calculate Savings</button>
+            </div>
+
+
+        </div>
+
+        <!-- History Tab Content -->
+        <div id="historyContent" class="hidden mt-6">
+            <h2 class="text-lg font-semibold text-purple-500 gradient-bg p-2 rounded-md text-center">Results Summary</h2>
+            <div class="grid grid-cols-2 gap-4 mt-4">
+                <div class="bg-blue-50 p-4 rounded-md text-center">
+                    <p>Total Expenses</p>
+                    <p class="text-lg font-semibold">৳300.00</p>
+                </div>
+                <div class="bg-green-50 p-4 rounded-md text-center">
+                    <p>Balance</p>
+                    <p class="text-lg font-semibold">৳700.00</p>
+                </div>
+                <div class="bg-yellow-50 p-4 rounded-md text-center">
+                    <p>Savings Amount</p>
+                    <p class="text-lg font-semibold">৳0.00</p>
+                </div>
+                <div class="bg-pink-50 p-4 rounded-md text-center">
+                    <p>Remaining Balance</p>
+                    <p class="text-lg font-semibold">৳0.00</p>
+                </div>
+            </div>
+
+            <div class="mt-6 text-center">
+                <h3 class="text-blue-600 font-semibold">🔵 Expense History</h3>
+                <div class="bg-gray-50 p-4 rounded-md mt-2">
+                    <p>Serial: 1</p>
+                    <p>Date: 20/09/2024</p>
+                    <p>Income: ৳1000.00</p>
+                    <p>Expenses: ৳300.00</p>
+                    <p>Balance: ৳700.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to Toggle Tabs -->
+    <script>
+        const assistantTab = document.getElementById('assistantTab');
+        const historyTab = document.getElementById('historyTab');
+        const assistantContent = document.getElementById('assistantContent');
+        const historyContent = document.getElementById('historyContent');
+
+        assistantTab.addEventListener('click', () => {
+            assistantTab.classList.add('tab-active');
+            historyTab.classList.remove('tab-active');
+            assistantContent.classList.remove('hidden');
+            historyContent.classList.add('hidden');
+        });
+
+        historyTab.addEventListener('click', () => {
+            historyTab.classList.add('tab-active');
+            assistantTab.classList.remove('tab-active');
+            historyContent.classList.remove('hidden');
+            assistantContent.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>

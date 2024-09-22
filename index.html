@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmer Expenses Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              }
+            }
+          }
+        }
+      </script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="card w-96 bg-white shadow-lg rounded-lg p-6">
+        <h1 class="text-2xl font-bold text-blue-600">💻 Programmer Expenses Assistant</h1>
+        <div class="tabs mt-4 flex justify-between">
+            <button id="assistant-button" class="btn  text-white bg-gradient-to-r from-blue-500 to-purple-600 w-5/12">Assistant</button>
+            <button id="history-button" class="btn text-gray-500 bg-transparent w-5/12">History</button>
+        </div>
+        <div id="assistant-sections" class="mt-6 space-y-4">
+            <!-- Income -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Income 💰</label>
+                <input id="income-input" type="number" placeholder="Enter income" class="input input-bordered w-full" />
+            </div>
+
+            <!-- Software & Course Costs -->
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Software 💻</label>
+                    <input id="Software-input" type="number" placeholder="Software cost" class="input input-bordered w-full" />
+                </div>
+            <!-- Course Input -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Courses 📚</label>
+                    <input id="course-input" type="number" placeholder="Course cost" class="input input-bordered w-full" />
+                </div>
+            </div>
+
+            <!-- Internet Cost -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Internet 🌐</label>
+                <input id="internet-input" type="number" placeholder="Internet cost" class="input input-bordered w-full" />
+            </div>
+
+            <!-- Calculate Button -->
+            <div id="Calculate-button" class="flex justify-between items-center">
+                <button class="btn btn-primary w-full">Calculate</button>
+            </div>
+            <!-- Savings Percentage -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Savings (%) 🐖</label>
+                <input id="saving-input" type="number" placeholder="Savings %" class="input input-bordered w-full" />
+            </div>
+            <!-- Savings Button -->
+             
+            <div class="mt-4">
+                <button id="saving-button" class="btn btn-success w-full">Calculate Savings</button>
+            </div>
+        </div>
+                <!-- Expense History -->
+        <div class="mt-6 shadow-md space-y-4 p-2">
+                    <h2 class="text-lg font-semibold text-purple-500 gradient-bg p-2 rounded-md text-center">Results Summary</h2>
+                    <div id="history-content" class="hidden ">  
+                        <div class="grid grid-cols-2 gap-4 mt-4 ">
+                            <div class="bg-blue-50 p-4 border-l-4 border-amber-500 rounded-md text-center">
+                                <p>Total Expenses</p>
+                                <p class="text-lg font-semibold">৳<span id="total-expenses">0</span></p>
+                            </div>
+                            <div class="bg-green-50 p-4 border-l-4 border-green-500 rounded-md text-center">
+                                <p>Balance</p>
+                                <p class="text-lg font-semibold">৳<span id="total-balance">0</span></p>
+                            </div>
+                            <div class="bg-yellow-50 p-4 border-l-4 border-green-500 rounded-md text-center">
+                                <p>Savings Amount</p>
+                                <p class="text-lg font-semibold">৳<span id="saving-amount">0</span></p>
+                            </div>
+                            <div class="bg-pink-50 p-4 border-l-4 border-indigo-500 rounded-lg text-center">
+                                <p>Remain Balance</p>
+                                <p class="text-lg font-semibold">৳<span id="remaining-balance">0</span></p>
+                            </div>
+                        </div>
+                    </div>
+         </div>
+
+         <div id="expense-history" class="mt-4 text-center hidden">
+            <button class="btn btn-outline btn-info">🔵 Expense History</button>
+        <div id="expense-history-stored" class="grid grid-cols-2 gap-4 mt-4 text-left">
+        </div>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+    <script src="./utility.js"></script>
+</body>
+</html>
